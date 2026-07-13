@@ -2,12 +2,12 @@
   "use strict";
 
   var EVALUACIONES = [
-    { id: "parcial1", nombre: "Primer parcial",                 corto: "Parcial 1", peso: 35, taller: false, parcial: true },
-    { id: "parcial2", nombre: "Segundo parcial",                corto: "Parcial 2", peso: 35, taller: false, parcial: true },
-    { id: "taller1",  nombre: "Primera evaluación de talleres", corto: "Taller 1",  peso: 8,  taller: true,  parcial: false },
-    { id: "taller2",  nombre: "Segunda evaluación de talleres", corto: "Taller 2",  peso: 8,  taller: true,  parcial: false },
-    { id: "taller3",  nombre: "Tercera evaluación de talleres", corto: "Taller 3",  peso: 8,  taller: true,  parcial: false },
-    { id: "seminario", nombre: "Tarea interdisciplinaria",      corto: "Interdisc.", peso: 6, taller: false, parcial: false }
+    { id: "parcial1", nombre: "Primer parcial",                 peso: 35, taller: false, parcial: true },
+    { id: "parcial2", nombre: "Segundo parcial",                peso: 35, taller: false, parcial: true },
+    { id: "taller1",  nombre: "Primera evaluación de talleres", peso: 8,  taller: true,  parcial: false },
+    { id: "taller2",  nombre: "Segunda evaluación de talleres", peso: 8,  taller: true,  parcial: false },
+    { id: "taller3",  nombre: "Tercera evaluación de talleres", peso: 8,  taller: true,  parcial: false },
+    { id: "seminario", nombre: "Tarea interdisciplinaria",      peso: 6,  taller: false, parcial: false }
   ];
 
   var MAX_FALTAS = 8;
@@ -15,8 +15,7 @@
   var $ = function (id) { return document.getElementById(id); };
 
   function celdaNombre(ev) {
-    return '<span class="nombre-largo">' + ev.nombre + '</span>' +
-           '<span class="nombre-corto">' + ev.corto + '</span>';
+    return '<span class="nombre">' + ev.nombre + '</span>';
   }
 
   // ---- construir tabla de pesos ----
