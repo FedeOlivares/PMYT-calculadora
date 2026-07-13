@@ -47,8 +47,26 @@
     gap: 20px;
     align-items: start;
   }
+  .layout > main, .layout > aside { min-width: 0; }
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
+    /* las tarjetas pasan a ser hijas directas de la grilla para poder reordenarlas */
+    .layout > main, .layout > aside { display: contents; }
+    .card { margin-bottom: 0; min-width: 0; }
+    .resultado { order: -1; }
+  }
+  @media (max-width: 480px) {
+    .layout { padding: 0 10px; margin: 16px auto; gap: 14px; }
+    .card { padding: 14px; }
+    table { font-size: .85rem; }
+    th, td { padding: 6px 4px; }
+    td:first-child, th:first-child { overflow-wrap: anywhere; hyphens: auto; }
+    input[type="number"] { width: 54px; padding: 6px 5px; font-size: .85rem; }
+    .puntos-wrap { gap: 3px; }
+    .puntos-wrap input { width: 40px; }
+    .puntos-wrap .de { font-size: .8rem; }
+    select { padding: 6px 2px; font-size: .82rem; width: 62px; }
+    .resultado .nota { font-size: 2.2rem; }
   }
 
   .card {
@@ -267,12 +285,12 @@
   "use strict";
 
   var EVALUACIONES = [
-    { id: "taller1",  nombre: "Primera evaluación de talleres",    peso: 8,  taller: true,  parcial: false },
     { id: "parcial1", nombre: "Primer parcial",                    peso: 35, taller: false, parcial: true },
+    { id: "parcial2", nombre: "Segundo parcial",                   peso: 35, taller: false, parcial: true },
+    { id: "taller1",  nombre: "Primera evaluación de talleres",    peso: 8,  taller: true,  parcial: false },
     { id: "taller2",  nombre: "Segunda evaluación de talleres",    peso: 8,  taller: true,  parcial: false },
     { id: "taller3",  nombre: "Tercera evaluación de talleres",    peso: 8,  taller: true,  parcial: false },
-    { id: "seminario", nombre: "Tarea interdisciplinaria",         peso: 6,  taller: false, parcial: false },
-    { id: "parcial2", nombre: "Segundo parcial",                   peso: 35, taller: false, parcial: true }
+    { id: "seminario", nombre: "Tarea interdisciplinaria",         peso: 6,  taller: false, parcial: false }
   ];
 
   var MAX_FALTAS = 8;
